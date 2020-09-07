@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: Sites-CS/portfolio
+  repo: Sites-CS/portfolio/portfolio-app
   branch: master
 
 media_folder: "static/uploads"
