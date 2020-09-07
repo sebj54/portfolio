@@ -1,0 +1,21 @@
+backend:
+  name: github
+  repo: Sites-CS/portfolio
+  branch: master
+
+media_folder: "static/uploads"
+public_folder: "/uploads"
+
+locale: fr
+
+collections:
+  - name: "posts"
+    label: "Création"
+    folder: "posts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Titre", name: "title", widget: "string"}
+      - {label: "Description", name: "excerpt", widget: "string"}
+      - {label: "Date de publication", name: "date", widget: "date"}
+      - {label: "Lien du site", name: "link", widget: "string"}

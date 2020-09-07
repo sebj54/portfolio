@@ -4,7 +4,53 @@
 // Changes here require a server restart.
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
+// TODO: Use critical CSS plugin
+// @see https://gridsome.org/plugins/@gridsome/plugin-critical
+
+const path = require('path')
+
+function addStyleResource(rule) {
+    rule.use('style-resource')
+        .loader('style-resources-loader')
+        .options({
+            patterns: [
+                path.resolve(__dirname, './src/assets/scss/_vars.scss'),
+                path.resolve(__dirname, './src/assets/scss/_mixins.scss'),
+            ],
+        })
+}
+
 module.exports = {
-  siteName: 'Gridsome',
-  plugins: []
+  siteName: 'Portfolio',
+  siteUrl: 'https://www.portfolio-app.com',
+  // icon: {
+  //     favicon: 'src/favicon.png',
+  // },
+  transformers: {
+      remark: {
+          externalLinksTarget: '_blank',
+          externalLinksRel: ['nofollow', 'noopener', 'noreferrer'],
+          anchorClassName: 'icon icon-link',
+          plugins: [
+              // ...global plugins
+          ],
+      },
+  },
+
+  plugins: [
+      {
+          use: '@gridsome/source-filesystem',
+          options: {
+              typeName: 'Post',
+              baseDir: './posts',
+              path: '*.md',
+          },
+      },
+      {
+          use: `gridsome-plugin-netlify-cms`,
+          options: {
+              publicPath: `/admin`,
+          },
+      },
+  ],
 }

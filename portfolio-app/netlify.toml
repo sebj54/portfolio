@@ -1,0 +1,5 @@
+[build]
+    base = "."
+    functions = "./functions"
+    command = "gridsome build"
+    publish = "dist"
