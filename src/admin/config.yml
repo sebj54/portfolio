@@ -19,3 +19,4 @@ collections:
       - {label: "Description", name: "excerpt", widget: "string"}
       - {label: "Date de publication", name: "date", widget: "date"}
       - {label: "Lien du site", name: "link", widget: "string"}
+      - {label: "Image de couverture", name: "coverImage", widget: "image", required: false}

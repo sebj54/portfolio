@@ -21,36 +21,44 @@ function addStyleResource(rule) {
 }
 
 module.exports = {
-  siteName: 'Portfolio',
-  siteUrl: 'https://www.portfolio-app.com',
-  // icon: {
-  //     favicon: 'src/favicon.png',
-  // },
-  transformers: {
-      remark: {
-          externalLinksTarget: '_blank',
-          externalLinksRel: ['nofollow', 'noopener', 'noreferrer'],
-          anchorClassName: 'icon icon-link',
-          plugins: [
-              // ...global plugins
-          ],
-      },
-  },
+    siteName: 'Portfolio',
+    siteUrl: 'https://www.portfolio-app.com',
+    // icon: {
+    //     favicon: 'src/favicon.png',
+    // },
+    transformers: {
+        remark: {
+            externalLinksTarget: '_blank',
+            externalLinksRel: ['nofollow', 'noopener', 'noreferrer'],
+            anchorClassName: 'icon icon-link',
+            plugins: [
+                // ...global plugins
+            ],
+        },
+    },
 
-  plugins: [
-      {
-          use: '@gridsome/source-filesystem',
-          options: {
-              typeName: 'Post',
-              baseDir: './posts',
-              path: '*.md',
-          },
-      },
-      {
-          use: `gridsome-plugin-netlify-cms`,
-          options: {
-              publicPath: `/admin`,
-          },
-      },
-  ],
+    plugins: [
+        {
+            use: '@gridsome/source-filesystem',
+            options: {
+                typeName: 'Post',
+                baseDir: './posts',
+                path: '*.md',
+            },
+        },
+        {
+            use: `gridsome-plugin-netlify-cms`,
+            options: {
+                publicPath: `/admin`,
+            },
+        },
+    ],
+    chainWebpack(config) {
+        // Load variables for all vue-files
+        const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
+
+        types.forEach(type => {
+            addStyleResource(config.module.rule('scss').oneOf(type))
+        })
+    },
 }

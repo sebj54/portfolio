@@ -29,6 +29,7 @@ export default {
       excerpt
       date(format: "DD/MM/YYYY")
       link
+      coverImage
     }
   }
 </page-query>

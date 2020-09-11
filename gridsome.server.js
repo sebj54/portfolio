@@ -13,23 +13,24 @@ const slugReplacement = {
 }
 
 module.exports = function (api) {
-  api.loadSource(({ addCollection }) => {
-    // Use the Data Store API here: https://gridsome.org/docs/data-store-api/
-  })
+    api.loadSource(({ addCollection }) => {
+        // Use the Data Store API here: https://gridsome.org/docs/data-store-api/
+    })
 
-  api.onCreateNode(options => {
+    api.onCreateNode(options => {
         if (options.internal.typeName === 'Post') {
             options.slug = slugify(options.title, slugReplacement)
+            options.coverImage = options.coverImage || ''
         }
 
         return options
     })
 
-  api.createPages(async({
-    graphql,
-    createPage,
-  }) => {
-    const { data } = await graphql(`{
+    api.createPages(async ({
+        graphql,
+        createPage,
+    }) => {
+        const { data } = await graphql(`{
         allPost {
             edges {
                 node {
@@ -38,22 +39,22 @@ module.exports = function (api) {
                     slug
                     excerpt
                     date(format: "DD/MM/YYYY")
+                    coverImage
                 }
             }
         }
     }`)
 
-    data.allPost.edges.forEach(({
-        node,
-    }) => {
-        console.log(node)
-        createPage({
-            path: `/creations/${node.slug}`,
-            component: './src/templates/Creation.vue',
-            context: {
-                recordId: node.id,
-            },
+        data.allPost.edges.forEach(({
+            node,
+        }) => {
+            createPage({
+                path: `/creations/${node.slug}`,
+                component: './src/templates/Creation.vue',
+                context: {
+                    recordId: node.id,
+                },
+            })
         })
     })
-  })
 }
