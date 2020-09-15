@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.com/Sites-CS/portfolio.svg?branch=base)](https://travis-ci.com/Sites-CS/portfolio)
+[![Coverage Status](https://coveralls.io/repos/github/Sites-CS/portfolio/badge.svg?branch=base)](https://coveralls.io/github/Sites-CS/portfolio?branch=base)
+
 https://github.com/Sites-CS/portfolio
 
 This project is a porfolio project for multiple profils, using Gridsome.
