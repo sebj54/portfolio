@@ -1,0 +1,18 @@
+# This workflow will run tests using node when a pull request is made on base branch
+name: Test with Jest
+
+on:
+  pull_request:
+    branches:
+    - base
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: npm ci
+      - run: npm test
