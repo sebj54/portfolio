@@ -1,10 +1,7 @@
 # This workflow will run tests using node when a pull request is made on base branch
 name: Test with Jest
 
-on:
-  pull_request:
-    branches:
-    - base
+on: [pull_request]
 
 jobs:
   test:
@@ -16,3 +13,10 @@ jobs:
           node-version: 12
       - run: npm ci
       - run: npm test
+      - uses: marocchino/sticky-pull-request-comment@v1
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          message: |
+            ```
+            ${{ steps.test.outputs.result }}
+            ```
