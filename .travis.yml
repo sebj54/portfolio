@@ -13,3 +13,6 @@ jobs:
         - cat ./coverage/lcov.info | coveralls
     - name: "Eslint"
       script: npm run lint
+    - stage: "Build"
+      name: "Gridsome build"
+      script: npm run build
