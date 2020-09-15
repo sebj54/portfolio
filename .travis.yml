@@ -4,5 +4,12 @@ node_js:
 cache:
   directories:
     - node_modules
-script:
-  - npm test
+jobs:
+  include:
+    - stage: "Tests"
+      name: "Unit tests"
+      script: npm test
+      after_script:
+        - cat ./coverage/lcov.info | coveralls
+    - name: "Eslint"
+      script: npm run lint
