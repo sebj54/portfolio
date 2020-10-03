@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: Sites-CS/portfolio
+  repo: sebj54/portfolio
   branch: base
   commit_messages:
     create: "💬 Create {{collection}} “{{slug}}”"
