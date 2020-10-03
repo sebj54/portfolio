@@ -1,15 +1,8 @@
 ---
 name: Présentation (Accueil)
 uuid: about
-title: À propos
+title: Sébastien JEAN, développeur web indépendant depuis 2012
 ---
-Lorem ipsum dolor sit amet **consectetur adipisicing** elit. Totam, vero
-cupiditate iste quisquam iusto perferendis in fugiat sed ad, qui eligendi
-optio eaque doloribus reprehenderit provident veritatis omnis, laudantium
-deleniti.
+Je réalise toute sorte de projets pour des agences web ou des clients professionnels. En fonction des besoins de mes clients, je leur propose différentes technologies grâce à l'expérience que j'ai acquis lors de mon parcours professionnel.
 
-Cupiditate, quaerat! Sit commodi dignissimos consequuntur excepturi quam id nemo rerum sint earum tenetur illo, tempore minus laudantium officiis? Minus iusto sint veritatis repudiandae ipsum, eligendi ea eius assumenda deserunt!
-
-Eum blanditiis placeat consequuntur modi *quaerat veritatis* beatae quisquam, **quos maxime**, incidunt ipsum esse qui debitis ratione? Eius dignissimos cupiditate nisi eum, nihil voluptate, voluptas dolores unde ipsam eveniet minima.
-
-Cumque, quam! Quod corporis quidem delectus necessitatibus excepturi **veniam magni minus** error cum architecto nobis aut pariatur quaerat vel, odit quas eos vero distinctio doloribus quo veritatis, libero explicabo. Tenetur!
+Mes maîtres mots sont sobriété et qualité et j'ai à cœur de proposer des solutions intuitives, que ce soit pour des [sites vitrines](portfolio?categories=sites-vitrines), des [applications web](portfolio?categories=applications-web), des [applications mobiles](portfolio?categories=applications-mobiles), des [sites statiques](portfolio?categories=sites-statiques), avec ou sans [CMS](portfolio?categories=cms), avec ou sans [API](portfolio?categories=api)…
