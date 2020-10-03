@@ -1,18 +1,26 @@
 <template>
     <layout>
-        <g-image
-            class="creations-list-item-coverImage"
-            :src="$page.entry.coverImage"
-            :alt="$t('portfolio.coverImageAlt', { title: $page.entry.title })"
-        />
+        <flipped :flip-id="`portfolio-cover-${$page.entry.fileInfo.name}`">
+            <div>
+                <g-image
+                    class="creations-list-item-coverImage"
+                    :src="$page.entry.coverImage"
+                    :alt="$t('portfolio.coverImageAlt', { title: $page.entry.title })"
+                />
+            </div>
+        </flipped>
 
-        <h1 class="portfolio-item-title">
-            {{ $page.entry.title }}
-        </h1>
+        <flipped :flip-id="`portfolio-title-${$page.entry.fileInfo.name}`">
+            <h1 class="portfolio-item-title">
+                {{ $page.entry.title }}
+            </h1>
+        </flipped>
 
-        <p class="portfolio-item-excerpt">
-            {{ $page.entry.excerpt }}
-        </p>
+        <flipped :flip-id="`portfolio-excerpt-${$page.entry.fileInfo.name}`">
+            <p class="portfolio-item-excerpt">
+                {{ $page.entry.excerpt }}
+            </p>
+        </flipped>
 
         <p>
             <b-button
@@ -43,10 +51,12 @@
 import {
     BButton,
 } from 'bootstrap-vue'
+import { Flipped } from 'vue-flip-toolkit'
 
 export default {
     components: {
         BButton,
+        Flipped,
     },
 }
 </script>
@@ -61,6 +71,9 @@ export default {
       content
       screenshots
       featured
+      fileInfo {
+        name
+      }
     }
   }
 </page-query>

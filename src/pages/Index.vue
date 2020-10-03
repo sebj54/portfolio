@@ -58,6 +58,9 @@ export default {
           coverImage
           technologies
           categories
+          fileInfo {
+              name
+          }
         }
       }
     }

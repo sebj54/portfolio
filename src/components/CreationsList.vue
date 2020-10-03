@@ -29,27 +29,35 @@
                     class="my-4"
                     no-body
                 >
-                    <g-image
-                        class="creations-list-item-coverImage card-img"
-                        :src="creation.node.coverImage"
-                        alt=""
-                    />
+                    <flipped :flip-id="`portfolio-cover-${creation.node.fileInfo.name}`">
+                        <div>
+                            <g-image
+                                class="creations-list-item-coverImage card-img"
+                                :src="creation.node.coverImage"
+                                alt=""
+                            />
+                        </div>
+                    </flipped>
 
                     <b-card-body>
-                        <b-card-title
-                            :title-tag="titleTag"
-                            class="creations-list-item-title h4"
-                        >
-                            {{ creation.node.title }}
-                        </b-card-title>
+                        <flipped :flip-id="`portfolio-title-${creation.node.fileInfo.name}`">
+                            <b-card-title
+                                :title-tag="titleTag"
+                                class="creations-list-item-title h4"
+                            >
+                                {{ creation.node.title }}
+                            </b-card-title>
+                        </flipped>
 
                         <b-card-text class="creations-list-item-date">
                             {{ creation.node.date }}
                         </b-card-text>
 
-                        <b-card-text class="creations-list-item-excerpt">
-                            {{ creation.node.excerpt }}
-                        </b-card-text>
+                        <flipped :flip-id="`portfolio-excerpt-${creation.node.fileInfo.name}`">
+                            <b-card-text class="creations-list-item-excerpt">
+                                {{ creation.node.excerpt }}
+                            </b-card-text>
+                        </flipped>
 
                         <b-button
                             :to="creation.node.path"
@@ -76,6 +84,7 @@ import {
     BCol,
     BRow,
 } from 'bootstrap-vue'
+import { Flipped } from 'vue-flip-toolkit'
 import TechnologiesFilters from '~/components/TechnologiesFilters.vue'
 import CategoriesFilters from '~/components/CategoriesFilters.vue'
 
@@ -88,6 +97,7 @@ export default {
         BCardText,
         BCol,
         BRow,
+        Flipped,
         TechnologiesFilters,
         CategoriesFilters,
     },
